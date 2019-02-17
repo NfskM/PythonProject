@@ -2,14 +2,13 @@
 #Π18099
 #Ναυσικά Μαστροδήμα
 #2019
-
 #Άνοιγμα αρχείου και μετατροπή αυτού σε λίστα
 file = open("test.txt", "r")
 list1=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 frequency=[0]
 nf=[]
 
-for i in range(26):
+for i in range(25):
     frequency.append(0)
 
 with open("test.txt", "r") as file:
@@ -27,19 +26,20 @@ while(i<=len(frequency)):
     if(frequency!=0):
         max=0
         min=i
+        break
     else:
         i=i+1
 
 for i in range(len(frequency)):
     if((frequency[i]>frequency[max])):
         max=i
-    if((frequency[i]<frequency[min])and(frequency[i]!=0)):
+    if((frequency[i]<frequency[min])):
         min=i
 #Αντιστροφή Χαρακτήρων
 for i in range(len(nf)):
     if(nf[i]==list1[max]):
         nf[i]=list1[min]
-    if(nf[i]==list1[min]):
+    elif(nf[i]==list1[min+1]):
         nf[i]=list1[max]
 #Μετατροπή λίστας σε string και εκτύπωση κειμένου και στατιστικά
 nf = ''.join(nf)
